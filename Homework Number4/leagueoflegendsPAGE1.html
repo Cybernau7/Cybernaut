@@ -1,45 +1,94 @@
 <html>
+    <!-- Трябва да свикнеш да си подреждаш кода. Едно от важните неща е: ако си отворил таг на дадено място (да речем 2 таба от началото на реда) то трябва да го затваряш на същото място -->
     <head>
         <title>LeaugeofLegends</title>
+        <!-- Защо си заредил Nunito, при все че долу използваш "Times New Roman" ? Ако ще зареждаш шрифтове, ги използвай, инак просто забавя зареждането на страницата. -->
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-            <style>
-            span {
-            font-size:2;
-            font-family: 'Times New Roman', sans-serif;
+        <style>
+            /* --- По-надолу съм обяснил защо е добавен този CSS --- */
+            body{
+                color:#fff;
             }
-            </style>
-            </head>
-            <body background="lolwallpaper.jpg"> 
+
+            span {
+                font-size:2;
+                font-family: 'Times New Roman', sans-serif;
+            }
+
+            /* --- По-надолу съм обяснил защо е добавен този CSS --- */
+            .landingPage{
+                background-image: url('lolwallpaper.jpg');
+            }
+        </style>
+    </head>
+
+    <!-- Не използвай background атрибут за да сменяш фоновото изображение. 
+        Основната причина е, че това не се поддържа във HTML5
+        Ако искаш да постигнеш същия резултат, постави CSS, който ще постигне същото. -->
+    <body class="landingPage"> 
+        <!-- Не е лоша идея да обвиеш header-a във <header> таг. Винаги се старай да използваш семантичните тагове ако има подходящи. -->
+        <header>
             <table>
-             <tr>
-                <td width="300"><img src="league.png" height="100"> </td>
-                    <td width="300"><a href="index.html"><button>News</button></a></td>
-                        <td width="300"><a href="contactusPAGE8.html"><button>Contact us</button></a></td>
-                            <td><a href="galerryPAGE7.html"><button>Gallery</button></a></td>
-            </tr>
+                <!-- Винаги поставяй, <thead> или <tbody> ако използваш таблици, независимо от това дали крайния резултат работи -->
+                <tbody>
+                    <tr>
+                        <td width="300">
+                            <img src="league.png" height="100"> 
+                        </td>
+                        <td width="300">
+                            <!-- Избягвай да слагаш и <a> и <button> едновременно. Само <а> е достатъчно, когато си говорим за header  -->
+                            <a href="index.html">
+                                <button>News</button>
+                            </a>
+                        </td>
+                        <td width="300">
+                            <a href="contactusPAGE8.html">
+                                <button>Contact us</button>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="galerryPAGE7.html">
+                                <button>Gallery</button>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
             </table>
-<h1><font color="white">League of Legends</font></h1>
-    <div id="introduction">
-      <h2>About League of Legends</h2>
-        <p>League of Legends is a fast-paced,<br>
-            <p><img src="leaguechamps.png" alt="lol" width="650" height="325" align="right"></p>
-          competitive online game that blends the speed and intensity of an RTS with RPG elements.<br>
-           Two teams of powerful champions, each with a unique design and playstyle,<br>
-                battle head-to-head across multiple battlefields and game modes. With an ever-expanding roster of champions<br>
-                     ,frequent updates and a thriving tournament scene,<br>
-                        League of Legends offers endless replayability for players of every skill level.</p>
-      <a href="https://na.leagueoflegends.com/en/game-info/get-started/what-is-lol/" target="_blank">Learn More</a>
-      <h3>Champions</h3>
-      <ol>
-        <li> <a href="YasuoPAGE2.html">Yasuo</a></li>
-            <li> <a href="mordekaiserPAGE3.html">Mordekaiser</a></li>
+        </header>
+
+        <!-- Избягвай да използваш тагове, които са направени да добавят стил. За целта използваме CSS. 
+            В конкретния случай със <font> тага, самия таг не се поддържа във HTML5: 
+            https://www.w3schools.com/tags/tag_font.asp.
+            Тъй като имаш тъмен фон за background image, съм добавил един ред css горе във <head>, който ще направи текста навсякъде да е бял     -->
+        <h1>League of Legends</h1>
+            
+        <div id="introduction">
+            <h2>About League of Legends</h2>
+            <!-- Не виждам да си поставил image map на това изображение. Добра идея е да го изтестваш. -->
+            <img src="leaguechamps.png" alt="lol" width="650" height="325" align="right">
+            <!-- Не можеш да нестваш <p> във друго <p>. Това, което браузъра прави накрая, е да изкара вътрешния параграф и го поставя след първия. -->
+            <p>League of Legends is a fast-paced,
+                <br> competitive online game that blends the speed and intensity of an RTS with RPG elements.
+                <br> Two teams of powerful champions, each with a unique design and playstyle,
+                <br> battle head-to-head across multiple battlefields and game modes. With an ever-expanding roster of champions
+                <br> ,frequent updates and a thriving tournament scene,
+                <br> League of Legends offers endless replayability for players of every skill level.
+            </p>
+
+            <a href="https://na.leagueoflegends.com/en/game-info/get-started/what-is-lol/" target="_blank">Learn More</a>
+
+            <h3>Champions</h3>
+                <!-- Всички <li> тагове се намират на едно и също ниво, не поставяй всеки един от тях със екстра табулация, тък като това води до объркване, кой елемент вътре в кой се намира -->
+            <ol>
+                <li> <a href="YasuoPAGE2.html">Yasuo</a></li>
+                <li> <a href="mordekaiserPAGE3.html">Mordekaiser</a></li>
                 <li><a href="teemoPAGE4.html">Teemo</a></li>
-                    <li> <a href="aatroxPAGE5.html">Aatrox</a></li>
-                        <li> <a href="ashePAGE6.html">Ashe</a></li>
-                            <li>Tryndamere</li>
-                                 <li>Cho'Gath</li>
-                                     <li>Kai'sa</li>
-                                        </ol>
-                                            </div>
-        </body>
-        </html>
+                <li> <a href="aatroxPAGE5.html">Aatrox</a></li>
+                <li> <a href="ashePAGE6.html">Ashe</a></li>
+                <li>Tryndamere</li>
+                <li>Cho'Gath</li>
+                <li>Kai'sa</li>
+            </ol>
+        </div>
+    </body>
+</html>
